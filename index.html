@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandCall - Outsource Your Family Guilt</title>
+    <style>
+        :root {
+            --primary-color: #5E6AD2;
+            --text-color: #FFFFFF;
+            --background-color: #0E0E10;
+            --secondary-bg-color: #1C1C1F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(14, 14, 16, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://replicate.delivery/yhqm/vicfQ8eemQRb2pzVNtePzeMiE4cmrBfp2tMShqZXE7GRBq41E/out-0.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(14, 14, 16, 0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #5E6AD2, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #4A55B8;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            background-color: var(--secondary-bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .how-it-works {
+            background-color: var(--secondary-bg-color);
+            padding: 4rem 0;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            flex-basis: calc(33.333% - 2rem);
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .testimonials {
+            background-color: var(--secondary-bg-color);
+        }
+        
+        .testimonial {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing {
+            text-align: center;
+        }
+        
+        .price-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .price-card {
+            background-color: var(--secondary-bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+        
+        .price {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        footer {
+            background-color: var(--secondary-bg-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">GrandCall</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Outsource Your Family Guilt</h1>
+            <p>Because who has time for actual human connections in the age of TikTok?</p>
+            <a href="#pricing" class="cta-button">Embrace Your Inner Sociopath</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Features for the Emotionally Bankrupt</h2>
+            <div class="features">
+                <div class="feature">
+                    <i>🎭</i>
+                    <h3>HyperReal™ Voice Cloning</h3>
+                    <p>Our AI doesn't just mimic your voice; it perfectly replicates your soul-crushing indifference. Grandma won't know the difference!</p>
+                </div>
+                <div class="feature">
+                    <i>🧠</i>
+                    <h3>FamilyLore™ Knowledge Base</h3>
+                    <p>We store every excruciating detail of your family history so you don't have to waste brain cells remembering Aunt Mildred's cat's name.</p>
+                </div>
+                <div class="feature">
+                    <i>💰</i>
+                    <h3>InheriTech™ Optimization</h3>
+                    <p>Our algorithms ensure you're always the favorite child. Because love is temporary, but a fat inheritance is forever.</p>
+                </div>
+                <div class="feature">
+                    <i>🤖</i>
+                    <h3>EmotiSim™ 3000</h3>
+                    <p>From crocodile tears to maniacal laughter, fake every human emotion without the hassle of actually feeling anything!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How We Enable Your Emotional Neglect</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Voice Theft</h3>
+                    <p>Spend 5 excruciating minutes reading our script. We'll capture every nuance of your apathy and turn it into digital gold.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Family Intel Extraction</h3>
+                    <p>Answer 200 invasive questions about your family. Don't worry, it's still less painful than actually talking to them!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>AI Indoctrination</h3>
+                    <p>Our quantum computers spend 48 hours learning to be a better you than you ever could be. Embrace obsolescence!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Set It and Forget It</h3>
+                    <p>Choose how often you want to pretend to care. Our AI handles the rest while you focus on your true passion: ignoring your family.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Continuous Manipulation</h3>
+                    <p>Our AI constantly refines its approach, optimizing for shorter calls and bigger inheritances. It's like evolution, but for avoiding responsibility!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Praise from Fellow Monsters</h2>
+            <div class="testimonial">
+                <p>"Thanks to GrandCall, I've missed three funerals and six weddings, and my family still thinks I'm the golden child. The inheritance optimization feature is paying for itself!" - Jessica, 28, Professional Trust Fund Baby</p>
+            </div>
+            <div class="testimonial">
+                <p>"I haven't spoken to my parents in years, but GrandCall's AI sends them heartfelt messages daily. I'm pretty sure they prefer the AI version of me. Win-win!" - Chad, 35, Emotional Vampire</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Choose Your Path to Emotional Bankruptcy</h2>
+            <div class="price-cards">
+                <div class="price-card">
+                    <h3>Basic Sociopath</h3>
+                    <p class="price">$29.99/mo</p>
+                    <ul>
+                        <li>Weekly AI guilt trips</li>
+                        <li>Basic excuse generation</li>
+                        <li>Automated "thoughts and prayers"</li>
+                    </ul>
+                    <a href="#" class="cta-button">Start Neglecting</a>
+                </div>
+                <div class="price-card">
+                    <h3>Advanced Narcissist</h3>
+                    <p class="price">$59.99/mo</p>
+                    <ul>
+                        <li>Daily ego-stroking check-ins</li>
+                        <li>EmotiSim™ 3000 access</li>
+                        <li>Virtual event attendance (while you're at the beach)</li>
+                        <li>Basic inheritance manipulation</li>
+                    </ul>
+                    <a href="#" class="cta-button">Upgrade Your Apathy</a>
+                </div>
+                <div class="price-card">
+                    <h3>Ultimate Family Phantom</h3>
+                    <p class="price">$99.99/mo</p>
+                    <ul>
+                        <li>24/7 AI emotional labor</li>
+                        <li>Full InheriTech™ suite</li>
+                        <li>AI-powered gaslighting</li>
+                        <li>Customized guilt-dodging algorithms</li>
+                    </ul>
+                    <a href="#" class="cta-button">Transcend Humanity</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GrandCall - Pioneering new frontiers in family avoidance and emotional neglect</p>
+            <p><small>Disclaimer: GrandCall is not responsible for any accidental feelings of remorse, sudden attacks of conscience, or the slow, creeping realization that you've become everything you once despised. Use at your own risk of karmic retribution.</small></p>
+        </div>
+    </footer>
+</body>
+</html>
